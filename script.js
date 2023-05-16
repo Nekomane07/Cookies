@@ -11,3 +11,8 @@ document.cookie = "CookieBy=CookieTester; max-age="+60*60*24*30
     alert("ERROR:\nCookies could not be Enabled")
   }
 }
+
+// Check for set cookie and hide prompt if so
+let checkCookie = document.cookie.indexOf("CookieBy=CookieTester")
+checkCookie != 1 ? cookieBox.classList.add('hide'): cookieBox.classList.remove('hide')
+console.log(checkCookie)
