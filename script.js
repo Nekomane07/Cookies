@@ -1,11 +1,12 @@
 const cookieBox = document.querySelector(".wrapper"),
 acceptBtn = cookieBox.querySelector(".buttons button");
-
+const cookies = document.cookie
+let cookiesEnabled = False
 acceptBtn.onclick = ()=>{
-  // cookie is set to expire after a month
-document.cookie = "CookieBy=CookieTester; max-age="+60*60*24*30
+
+
+  document.cookie = 'Enabled? = True'
   if(document.cookie) {
-    alert("Cookies Have Been Enabled")
     cookieBox.classList.add('hide')
   } else {
     alert("ERROR:\nCookies could not be Enabled")
@@ -13,6 +14,16 @@ document.cookie = "CookieBy=CookieTester; max-age="+60*60*24*30
 }
 
 // Check for set cookie and hide prompt if so
-let checkCookie = document.cookie.indexOf("CookieBy=CookieTester")
-checkCookie != 1 ? cookieBox.classList.add('hide'): cookieBox.classList.remove('hide')
+let checkCookie = document.cookie.indexOf("Enabled?")
+
+window.onload = function() {
+  if (cookies - 3 < 1) {
+    cookieBox.classList.remove('hide')
+     cookiesEnabled = True
+  } else {
+    cookieBox.classList.add('hide')
+    cookiesEnabled = False
+  }
+}
+
 console.log(checkCookie)
